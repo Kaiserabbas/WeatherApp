@@ -3,29 +3,32 @@
 body {
   background: cover;
   font-family: 'Puritan', sans-serif;
+  text-align: center;
+  background: url(../public/sky.png);
 }
 
 .cards {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
-  margin: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
   padding: 0;
 }
 
 .card {
-  flex: 1;
+  flex: 0.05;
   display: flex;
   flex-direction: column;
   background-color: rgba(156, 154, 243, 0.336);
   border: 2px solid rgba(95, 158, 160, 0.521);
   border-radius: 5px;
-  justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 0.5em 1em;
-  min-width: 8em;
-  min-height: 15em;
+  justify-content: center;
+  align-items: center;
+  height: 14em;
 }
 
 .title {
@@ -41,7 +44,7 @@ body {
 }
 
 .card img {
-  width: 5em;
+  width: auto;
   height: auto;
   justify-self: left;
 }
@@ -101,4 +104,16 @@ body {
   color: coral;
   font-family: cursive;
   font-weight: 100;
+}
+
+.search {
+  border: 2px solid rgba(95, 158, 160, 0.521);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 0.5em 1em;
+  margin: 0 auto;
+  width: 20em;
+  height: 1em;
+  display: flex;
+  background-color: transparent;
 }
