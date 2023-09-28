@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Noto+Nastaliq+Urdu&family=Poppins&family=Puritan&display=swap');
+
+body {
+  background: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card {
+  flex: 1 0 5em;
   display: flex;
   flex-direction: column;
+  background-color: whitesmoke;
+  border: 2px solid rgba(95, 158, 160, 0.521);
+  border-radius: 5px;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 0.5em 1em;
+  width: 10em;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.text {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: rgb(95, 158, 160);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card img {
+  width: 5em;
+  height: auto;
+  justify-self: left;
 }
