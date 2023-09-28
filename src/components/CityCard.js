@@ -4,23 +4,24 @@ import { Link } from 'react-router-dom';
 import { setWeatherData, setError } from '../redux/weatherSlice';
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
-import CardDetails from './CardDetails'; // Import the CardDetails component
 
 const CityCard = ({ cities }) => {
   const dispatch = useDispatch();
   const weatherData = useSelector((state) => state.weather.weatherData);
   const error = useSelector((state) => state.weather.error);
 
-  // State to manage the visibility of the modal
-  const [showModal, setShowModal] = useState(false);
+  const [searchText, setSearchText] = useState(''); // State for search input text
+  const [filteredCities, setFilteredCities] = useState(cities);
 
-  // State to store the selected city for the modal
-  const [selectedCity, setSelectedCity] = useState(null);
+  const handleSearchChange = (e) => {
+    const text = e.target.value;
+    setSearchText(text);
 
-  // Function to show the modal for a specific city
-  const showCityModal = (city) => {
-    setSelectedCity(city);
-    setShowModal(true);
+    // Filter the cities based on the search input
+    const filtered = cities.filter((city) =>
+      city.toLowerCase().includes(text.toLowerCase())
+    );
+    setFilteredCities(filtered);
   };
 
   useEffect(() => {
@@ -51,12 +52,19 @@ const CityCard = ({ cities }) => {
   }, [cities, dispatch]);
 
   return (
-    <div className="cards">
-      {cities.map((city) => (
+    <>
+      <input
+        type="text"
+        placeholder="Search city"
+        value={searchText}
+        onChange={handleSearchChange}
+        className='search'
+      />
+        <div className="cards">
+      {filteredCities.map((city) => (
         <Card  className='card'
           key={city}
           style={{ width: '18rem', margin: '10px' }}
-          onClick={() => showCityModal(city)} 
         >
           <Card.Body>
             <Card.Title className='title'><strong>{city}</strong> </Card.Title>
@@ -84,13 +92,8 @@ const CityCard = ({ cities }) => {
           </Card.Body>
         </Card>
       ))}
-
-      <CardDetails
-        city={selectedCity}
-        show={showModal}
-        onHide={() => setShowModal(false)}
-      />
     </div>
+      </>
   );
 };
 
