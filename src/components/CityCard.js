@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { setWeatherData, setError } from '../redux/weatherSlice';
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
@@ -57,6 +58,7 @@ const CityCard = ({ cities }) => {
           style={{ width: '18rem', margin: '10px' }}
           onClick={() => showCityModal(city)} 
         >
+        <Link to={`/details/${city}`}>
           <Card.Body>
             <Card.Title><strong>{city}</strong> </Card.Title>
             {error ? (
@@ -78,6 +80,7 @@ const CityCard = ({ cities }) => {
               </div>
             )}
           </Card.Body>
+          </Link>
         </Card>
       ))}
 
