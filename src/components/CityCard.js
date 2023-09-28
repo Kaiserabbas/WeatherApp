@@ -58,9 +58,8 @@ const CityCard = ({ cities }) => {
           style={{ width: '18rem', margin: '10px' }}
           onClick={() => showCityModal(city)} 
         >
-        <Link to={`/details/${city}`}>
           <Card.Body>
-            <Card.Title><strong>{city}</strong> </Card.Title>
+            <Card.Title className='title'><strong>{city}</strong> </Card.Title>
             {error ? (
               <div>Error: {error}</div>
             ) : (
@@ -79,8 +78,10 @@ const CityCard = ({ cities }) => {
                 )}
               </div>
             )}
-          </Card.Body>
+          <Link to={`/details/${city}`}>
+             <button className='button'>Details</button>
           </Link>
+          </Card.Body>
         </Card>
       ))}
 
